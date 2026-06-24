@@ -1,0 +1,38 @@
+<h1>Kredi Uygulaması 1</h1>
+
+<div class="kredi-form">
+  <label>Kredi Tutarı Giriniz (TL):</label>
+  <input type="number" placeholder="Örn: 100000" [(ngModel)]="istenilenTutar" />
+  
+  <label>Aylık Faiz Oranı (%):</label>
+  <input type="number" step="0.01" value="4.00" [(ngModel)]="aylikFaizOrani" />
+
+  <label>Vade Seçiniz:</label>
+  <select [(ngModel)]="vade">
+    <option value="null" disabled selected>Lütfen Vade Seçiniz</option>    
+    <option value="0">Peşin</option>
+    <option value="12">12 Ay</option>
+    <option value="24">24 Ay</option>
+    <option value="36">36 Ay</option>
+    <option value="48">48 Ay</option>
+  </select>
+
+  <br><br>
+  <button (click)="Hesapla()">Hesapla</button>
+</div>
+
+<hr>
+
+<div class="kredi-sonuc">
+  <h3>Hesaplama Sonuçları</h3>
+  
+  <p><strong>İstediğiniz Kredi Tutarı:{{istenilenTutar}}</strong></p>
+  <p><strong>Uygulanan Aylık Net Faiz:{{uygulananNetFaiz}}</strong></p>
+  
+  <p style="color: green; font-size: 18px;">
+    <strong>Aylık Taksit Tutarı:{{aylikTaksitTutari}}</strong> 
+  </p>
+  <p style="color: red;">
+    <strong>Toplam Geri Ödeme Tutarı:{{toplamGeriOdemeTutari}}</strong> 
+  </p>
+</div>

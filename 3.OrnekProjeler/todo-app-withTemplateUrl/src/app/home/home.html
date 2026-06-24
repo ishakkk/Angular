@@ -1,24 +1,39 @@
 <h1>Todo App With Html Url</h1>
-
+@if (!isFormUpdate) 
+{
 <div>
     <label>Work</label>
-    <input>
-    <button>Save</button>
+    <input [(ngModel)]="insertData">
+    <button (click)="save()">Save</button>
 </div>
+}
 
+@else {
 <div>
     <label>Update Work</label>
-    <input>
-    <button>Update</button>
+    <input [(ngModel)]="updateData">
+    <button (click)="update()">Update</button>
 </div>
+}
+
 
 <hr>
 <div>
     <ul>
         <li>
-
-            <button>Delete</button>
-            <button>Update</button>
+            @for (data of toDos; track data) 
+            {
+                <li>
+                    {{data}}
+                    @if(!isFormUpdate){
+                        <button (click)="delete($index)">Delete</button>
+                        <button (click)="get($index)">Update</button>
+                    }
+                    
+                </li>
+                
+            }
+            
         </li>
     </ul>
 </div>

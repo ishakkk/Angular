@@ -1,0 +1,23 @@
+<h1>{{helloWorld}}</h1>
+<button (click)="clickMe()">Beni Tıkla</button>
+<!--<p [class]="pSetElementClass()">Lorem ipsum dolor sit amet.</p>-->
+<p  [ngClass]="bgcolor==='red' ? 'blue':'red'">Hello World</p>
+<p [class]="pSetElementClass()" [class.active]="checkActive()">Hello World</p>
+<p [style]="'background-color:'+bgcolor">MERHABA</p>
+<p [style]="{backgroundColor:bgcolor,color:'blue'}">TEST</p>
+
+
+<input type="text" (keyup)="changeHelloWorldVariable($event)">
+
+<input type="text" [(ngModel)]="helloWorld">
+
+
+
+<h2>App Component</h2>
+<select [(ngModel)]="mySelect" name="mySelect">
+     <option value="">Seçim Yapın</option>
+    <option value="a">1</option>
+    <option value="b">2</option>
+    <option value="c">3</option>
+</select>
+<p>{{mySelect}}</p>
